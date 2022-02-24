@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: kubia-no-gpu
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: no-gpu
+  template:
+    metadata:
+      labels:
+        app: no-gpu
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: gpu
+                operator: NotIn
+                values:
+                - "true"
+  containers:
+  - image: luksa/kubia
+    name: kubia

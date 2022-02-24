@@ -12,6 +12,9 @@ spec:
       labels:
         app: no-gpu
     spec:
+      containers:
+      - image: luksa/kubia
+        name: kubia
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
@@ -21,6 +24,4 @@ spec:
                 operator: NotIn
                 values:
                 - "true"
-  containers:
-  - image: luksa/kubia
-    name: kubia
+      

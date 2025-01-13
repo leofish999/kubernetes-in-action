@@ -12,9 +12,11 @@ spec:
         backend:
           service:
             name: kubia-loadbalancer
-            port: 80
+            port: 
+              number: 80
       - path: /kubia2
         backend:
           service:
             name: kubia-loadbalancerㄉ
-            port: 80
+            port: 
+              number: 80

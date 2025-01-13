@@ -9,15 +9,15 @@ spec:
       paths:
       - pathType: Prefix
         path: "/kubia"
-          backend:
-            service:
-              name: kubia-loadbalancer
-              port: 
-                number: 80
+        backend:
+          service:
+            name: kubia-loadbalancer
+            port: 
+              number: 80
       - pathType: Prefix
         path: /kubia2
-          backend:
-            service:
-              name: kubia-loadbalancer2
-              port: 
-                number: 80
+        backend:
+          service:
+            name: kubia-loadbalancer2
+            port: 
+              number: 80

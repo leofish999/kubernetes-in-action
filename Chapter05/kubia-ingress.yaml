@@ -18,6 +18,6 @@ spec:
         path: /kubia2
           backend:
             service:
-              name: kubia-loadbalancerㄉ
+              name: kubia-loadbalancer2
               port: 
                 number: 80

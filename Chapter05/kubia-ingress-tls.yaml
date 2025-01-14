@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: kubia
@@ -8,10 +8,20 @@ spec:
     - kubia.example.com
     secretName: tls-secret
   rules:
-  - host: kubia.example.com
+  - host: "kubia.example.com"
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: "/kubia"
         backend:
-          serviceName: kubia-nodeport
-          servicePort: 80
+          service:
+            name: kubia-loadbalancer
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: /kubia2
+        backend:
+          service:
+            name: kubia-loadbalancer2
+            port: 
+              number: 80
